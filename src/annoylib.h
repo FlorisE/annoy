@@ -1545,7 +1545,7 @@ public:
     vector<std::thread> threads(n_threads);
 
     for (int thread_idx = 0; thread_idx < n_threads; thread_idx++) {
-      int trees_per_thread = q == -1 ? -1 : (int)floor((q + thread_idx) / n_threads);
+      int trees_per_thread = q == -1 ? -1 : (int)std::floor((q + thread_idx) / n_threads);
 
       threads[thread_idx] = std::thread(
         &AnnoyIndex<S, T, D, Random, AnnoyIndexMultiThreadedBuildPolicy>::thread_build,
